@@ -1,0 +1,64 @@
+.game-header {
+    width: calc(100vw - 16px);
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    background: #ff0047;
+    left: 0;
+    padding: 8px;
+    text-align: center;
+}
+
+.game-content {
+    background-color: #212121;
+    max-width: 400px;
+    margin: 80px 25px 0 25px;
+    border-radius: 10px;
+    min-height: 50%;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0px 10px #ff0047;
+}
+
+.light-content {
+    text-align: center;
+    background: #373737;
+    padding: 10px;
+    width: 125px;
+    margin: 16px auto;
+}
+.light {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+    border: 3px solid black;
+    margin: 0 auto;
+}
+
+.light.red {
+    background-color: red;
+}
+
+.light.green {
+    background-color: lawngreen;
+}
+
+h1 {
+    font-weight: 100;
+    padding: 10px 0px;
+    color: #ff0047;
+    text-shadow: 0px 2px #121212;
+}
+
+h2 {
+    font-weight: 100;
+    color: white;
+    font-size: 30px;
+}
+
+button {
+    width: 130px;
+    margin: 16px 4px !important;
+}

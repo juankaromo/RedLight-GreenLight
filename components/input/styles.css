@@ -1,0 +1,49 @@
+.form {
+    position: relative;
+    width: calc(100% - 40px);
+    height: 62px;
+}
+
+.form-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid #ff0047;
+    border-radius: 5px;
+    font-family: inherit;
+    color: white;
+    outline: none;
+    padding: 18px;
+    background: none;
+    z-index: 1;
+    font-size: 18px;
+}
+.form-control:hover {
+    border-color: white;
+}
+
+.form-control:focus {
+    border-color: #ff0047;
+}
+
+.form-label {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    padding: 0 0.5rem;
+    color: grey;
+    cursor: text;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+    background-color: #2a2a2a;
+    font-size: 18px;
+    z-index: 0;
+}
+
+.form-control:focus ~ .form-label, .form-control:not(:placeholder-shown).form-control:not(:focus) ~ .form-label {
+    top: -0.5rem;
+    font-size: 0.8rem;
+    left: 0.8rem;
+    z-index: 2;
+    color: white;
+}
