@@ -21,7 +21,8 @@
   },
   "devDependencies": {
     "@web/test-runner": "^0.13.27",
-    "@esm-bundle/chai": "^4.3.4",
-    "eslint": "6.8.0"
+    "@open-wc/testing": "^3.1.2",
+    "eslint": "6.8.0",
+    "prettier": "^2.5.1"
   }
 }

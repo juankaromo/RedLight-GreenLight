@@ -38,7 +38,7 @@ export class game extends HTMLElement {
         this.$score = this.querySelector(".score");
         this.$light = this.querySelector(".light");
 
-        this.redLigth = 3000;
+        this.redLigth = getRedLigthDuration();
         this.lastBtn = '';
         this.gameTimeout;
 

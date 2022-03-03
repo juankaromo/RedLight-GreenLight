@@ -51,15 +51,19 @@ function deleteUser(user) {
     router.push("ranking");
 }
 
-function gameLeft(data){
+function gameLeft(data) {
     const game = getUser(data[0]);
     game.score++;
     updateUser(game);
 }
 
-function gameRight(data){
+function gameRight(data) {
     const game = getUser(data[0]);
     game.score++;
+}
+
+function getRedLigthDuration() {
+    return 3000;
 }
 
 function initLocalStorage() {
