@@ -41,6 +41,9 @@ export class game extends HTMLElement {
         this.redLigth = 3000;
         this.lastBtn = '';
         this.gameTimeout;
+
+        this.song = new Audio('../audio/song.mp3');
+        this.songDuration = 12500;
     }
 
     render() {
@@ -72,6 +75,9 @@ export class game extends HTMLElement {
             } else {
                 if (this.game.score > 0) {
                     this.game.score--;
+                    if (window.navigator && window.navigator.vibrate) {
+                        window.navigator.vibrate(100);
+                     }
                 }
             }
             this.lastBtn = btn;
@@ -96,10 +102,21 @@ export class game extends HTMLElement {
 
         this.$light.classList.remove(this.lightIsRed ? 'green' : 'red');
         this.$light.classList.add(this.lightIsRed ? 'red' : 'green');
+
+        if (!this.lightIsRed) {
+            const rate = this.songDuration / this.lightTime;
+            this.song.playbackRate = rate;
+            this.song.play();
+        } else {
+            this.song.pause();
+            this.song.currentTime = 0;
+        }
     }
 
     disconnectedCallback() {
         clearTimeout(this.gameTimeout);
+        this.song.pause();
+        this.song.currentTime = 0;
     }
 }
 window.customElements.define("game-app", game);
