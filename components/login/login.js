@@ -1,11 +1,11 @@
 export class login extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = this.getTemplate();
-        this.init();
-    }
+  connectedCallback() {
+    this.innerHTML = this.getTemplate();
+    this.init();
+  }
 
-    getTemplate() {
-        return `
+  getTemplate() {
+    return `
         <style> @import "components/login/styles.css"; </style>
         <div class="login-content">
             <form>
@@ -25,26 +25,26 @@ export class login extends HTMLElement {
             </div>
         </div>
         `;
-    }
+  }
 
-    init() {
-        const form = this.querySelector("form");
+  init() {
+    const form = this.querySelector("form");
 
-        form.addEventListener("submit", evt => {
-            evt.preventDefault();
+    form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
 
-            const data = {};
-            const input = this.querySelector(".form-control");
-            let value = input.value;
+      const data = {};
+      const input = this.querySelector(".form-control");
+      let value = input.value;
 
-            if (value) {
-                const idCreated = createUser(value);
-                router.push("game", `id=${idCreated}`);
-            } else {
-                alert("You must enter a name.")
-            }
-        })
-    }
+      if (value) {
+        const idCreated = createUser(value);
+        router.push("game", `id=${idCreated}`);
+      } else {
+        alert("You must enter a name.");
+      }
+    });
+  }
 }
 
 window.customElements.define("login-app", login);

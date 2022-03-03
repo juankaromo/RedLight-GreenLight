@@ -1,41 +1,42 @@
-table{
-    border: 1px solid #ff0047;
-    min-width: 300px;
+table {
+  border: 1px solid #ff0047;
+  min-width: 300px;
 }
 
 .table-header {
-    display: flex;
-    width: 100%;
-    background: #000;
-    padding: 10px 0;
+  display: flex;
+  width: 100%;
+  background: #000;
+  padding: 10px 0;
 }
 
 .table-row {
-    display: flex;
-    width: 100%;
-    padding: 10px 0;
+  display: flex;
+  width: 100%;
+  padding: 10px 0;
 }
 
 .table-row:nth-of-type(odd) {
-    background: #353535;
+  background: #353535;
 }
 
-td, th {
-    flex: 1 1 25%;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    position: relative;
-    display: inline-block;
-    padding-left: 4px;
-    padding-right: 4px;    
-    font-size: 12px;
+td,
+th {
+  flex: 1 1 25%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
 }
 
-th{
-    text-transform: uppercase;
+th {
+  text-transform: uppercase;
 }
 
-td{
-    line-height: 3;
+td {
+  line-height: 3;
 }

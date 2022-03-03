@@ -1,17 +1,17 @@
 export class table extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = this.getTemplate();
-    }
+  connectedCallback() {
+    this.innerHTML = this.getTemplate();
+  }
 
-    attributeChangedCallback(attrName, oldVal, newVal) {
-        if (!this.props) {
-            this.props = {};
-        }
-        this.props[attrName] = newVal;
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    if (!this.props) {
+      this.props = {};
     }
-    
-    getTemplate() {
-        return `
+    this.props[attrName] = newVal;
+  }
+
+  getTemplate() {
+    return `
         <style> @import "components/table/styles.css"; </style>
         <table class="table">
                 ${this.getHeaders()}
@@ -19,42 +19,42 @@ export class table extends HTMLElement {
                 ${this.getTableBody()}
             </tbody>
         </table>
-        `
+        `;
+  }
+
+  static get observedAttributes() {
+    return ["myitems"];
+  }
+
+  getHeaders() {
+    let header = "<thead><tr class='table-header'>";
+    const headerNames = [];
+    for (const td of Object.keys((store[this.props.myitems] || [])[0] || {})) {
+      headerNames.push(td);
     }
+    headerNames.push("");
+    headerNames.forEach((name) => {
+      header += `<th scope="scol">${name}</th>`;
+    });
 
-    static get observedAttributes() {
-        return ['myitems'];
-    }
+    return header + "</tr></thead>";
+  }
 
-    getHeaders() {
-        let header = "<thead><tr class='table-header'>"
-        const headerNames = [];
-        for (const td of Object.keys((store[this.props.myitems] || [])[0] || {})) {
-            headerNames.push(td);
-        }
-        headerNames.push("");
-        headerNames.forEach(name => {
-            header += `<th scope="scol">${name}</th>`;
-        });
+  getItems() {
+    return store[this.props.myitems];
+  }
 
-        return header + "</tr></thead>";
-    }
+  getItemRow(item) {
+    const keys = Object.values(item);
+    let row = "";
+    keys.forEach((key) => {
+      row += `<td>${key}</td>`;
+    });
+    return row;
+  }
 
-    getItems() {
-        return store[this.props.myitems];
-    }
-
-    getItemRow(item) {
-        const keys = Object.values(item);
-        let row = "";
-        keys.forEach(key => {
-            row += `<td>${key}</td>`;
-        });
-        return row;
-    }
-
-    getTableActions(item) {
-        return `
+  getTableActions(item) {
+    return `
             <td>
                 <custom-button 
                     classes="btn btn-outline-danger"
@@ -66,28 +66,32 @@ export class table extends HTMLElement {
                 ></custom-button>
             </td>
         `;
-    }
+  }
 
-    getTableBody() {
-        const items = this.getItems();
+  getTableBody() {
+    const items = this.getItems();
 
-        if (items.length == 0) {
-            return `
+    if (items.length == 0) {
+      return `
                 <tr>
                     <td colspan="200" style="text-align: center">
                         There are no games yet.
                     </td>
                 </tr>
-            `
-        }
+            `;
+    }
 
-        return items.map(item => `
+    return items
+      .map(
+        (item) => `
             <tr class="table-row">
                 ${this.getItemRow(item)}
                 ${this.getTableActions(item)}
             </tr>
-        `).join("");
-    }
+        `
+      )
+      .join("");
+  }
 }
 
 window.customElements.define("custom-table", table);

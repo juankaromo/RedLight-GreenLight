@@ -4,7 +4,8 @@
   "description": "red light green light game",
   "scripts": {
     "start": "node index.js",
-    "test": "web-test-runner \"**/*.test.js\" --node-resolve"
+    "test": "web-test-runner \"**/*.test.js\" --node-resolve",
+    "pretty": "prettier --write ."
   },
   "repository": {
     "type": "git",
