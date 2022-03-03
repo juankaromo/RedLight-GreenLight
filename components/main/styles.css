@@ -7,7 +7,7 @@ html {
 #content {
     font-family: sans-serif;
     position: absolute;
-    background: url(/images/back.png);
+    background: url(../../images/back.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;

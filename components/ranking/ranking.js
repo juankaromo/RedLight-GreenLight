@@ -1,4 +1,8 @@
-class ranking extends CustomHTMLElement {
+export class ranking extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
+    }
+
     getTemplate() {
         return `
         <style> @import "components/ranking/styles.css"; </style>
@@ -7,10 +11,6 @@ class ranking extends CustomHTMLElement {
             <custom-table myitems="games"></custom-table>
         </div>
         `;
-    }
-
-    init() {
-
     }
 }
 

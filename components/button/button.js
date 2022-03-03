@@ -1,4 +1,16 @@
-class button extends CustomHTMLElement {
+export class button extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
+        this.init();
+    }
+
+    attributeChangedCallback(attrName, oldVal, newVal) {
+        if (!this.props) {
+            this.props = {};
+        }
+        this.props[attrName] = newVal;
+    }
+    
     getTemplate() {
         return `
             <style> @import "components/button/styles.css"; </style>

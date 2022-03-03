@@ -1,4 +1,15 @@
-class table extends CustomHTMLElement {
+export class table extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
+    }
+
+    attributeChangedCallback(attrName, oldVal, newVal) {
+        if (!this.props) {
+            this.props = {};
+        }
+        this.props[attrName] = newVal;
+    }
+    
     getTemplate() {
         return `
         <style> @import "components/table/styles.css"; </style>

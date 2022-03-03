@@ -1,4 +1,15 @@
-class input extends CustomHTMLElement{
+export class input extends HTMLElement{
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
+    }
+
+    attributeChangedCallback(attrName, oldVal, newVal) {
+        if (!this.props) {
+            this.props = {};
+        }
+        this.props[attrName] = newVal;
+    }
+
     getTemplate() {
         return `
             <style> @import "components/input/styles.css"; </style>

@@ -1,4 +1,16 @@
-class link extends CustomHTMLElement {
+export class link extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
+        this.init();
+    }
+
+    attributeChangedCallback(attrName, oldVal, newVal) {
+        if (!this.props) {
+            this.props = {};
+        }
+        this.props[attrName] = newVal;
+    }
+
     getTemplate() {
         return `
             <style> @import "components/link/styles.css"; </style>

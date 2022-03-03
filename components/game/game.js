@@ -1,4 +1,10 @@
-class game extends CustomHTMLElement {
+export class game extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
+        this.init();
+        this.render();
+    }
+
     getTemplate() {
         return `
         <style> @import "components/game/styles.css"; </style>       

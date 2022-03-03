@@ -1,4 +1,9 @@
-class login extends CustomHTMLElement {
+export class login extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
+        this.init();
+    }
+
     getTemplate() {
         return `
         <style> @import "components/login/styles.css"; </style>

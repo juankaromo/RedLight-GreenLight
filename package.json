@@ -1,0 +1,27 @@
+{
+  "name": "redlight-greenlight",
+  "version": "1.0.0",
+  "description": "red light green light game",
+  "scripts": {
+    "start": "node index.js",
+    "test": "web-test-runner \"**/*.test.js\" --node-resolve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juankaromo/RedLight-GreenLight.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juankaromo/RedLight-GreenLight/issues"
+  },
+  "homepage": "https://github.com/juankaromo/RedLight-GreenLight#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@web/test-runner": "^0.13.27",
+    "@esm-bundle/chai": "^4.3.4",
+    "eslint": "6.8.0"
+  }
+}

@@ -1,4 +1,4 @@
-class Router extends CustomHTMLElement {
+class Router extends HTMLElement {
     constructor() {
         super();
         this.PATHS = {
@@ -16,6 +16,10 @@ class Router extends CustomHTMLElement {
                 template: "<ranking-app></ranking-app>",
             }
         }
+    }
+
+    connectedCallback() {
+        this.innerHTML = this.getTemplate();
     }
 
     getTemplate() {
@@ -61,32 +65,10 @@ const router = {
     },
 }
 
-function getRouteAction() {
-    if (!store.currentPath.length > 1) {
-        return null;
-    }
-
-    if (store.currentPath.length === 2) {
-        return store.currentPath[1];
-    }
-
-    return store.currentPath[2];
-}
-
 function setPage(name) {
     const pathArray = name.split("/");
     store.currentPage = pathArray[0];
     store.currentPath = pathArray;
-}
-
-function getCurrentPage() {
-    const pagesFiltradas = store.pages.filter(page => page.name == store.currentPage);
-
-    if (pagesFiltradas.length == 0) {
-        return false;
-    }
-
-    return pagesFiltradas[0];
 }
 
 setPage(window.location.hash.replace("#", ""));
